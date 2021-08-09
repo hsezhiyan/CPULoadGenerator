@@ -18,7 +18,7 @@ from utils.Monitor import MonitorThread
 
 
 class ShutdownException(Exception):
-    pass
+    raise Exception("Error sustaining current CPU load.")
 
 
 def __sig_handler(*args):

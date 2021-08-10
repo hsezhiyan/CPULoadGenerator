@@ -18,7 +18,7 @@ from utils.Monitor import MonitorThread
 
 
 class ShutdownException(Exception):
-    raise Exception("Error sustaining current CPU load.")
+    pass
 
 
 def __sig_handler(*args):
@@ -64,7 +64,7 @@ def load_core(target_core, target_load,
         actuator.run()
 
     except ShutdownException:
-        pass
+        raise Exception("Error sustaining current CPU load.")
 
     finally:
         # shutting down, so ignore any signals

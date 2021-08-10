@@ -70,9 +70,9 @@ def load_core(target_core, target_load,
         # shutting down, so ignore any signals
         signal.signal(signal.SIGINT, signal.SIG_IGN)
         signal.signal(signal.SIGTERM, signal.SIG_IGN)
-
+        print("Waiting for actuator to close.")
         actuator.close()
-
+        print("Actuator closed.")
         monitor.stop()
         control.stop()
 

@@ -32,6 +32,7 @@ class ClosedLoopActuator:
     def generate_load(self, sleep_time):
         interval = time.time() + self.period - sleep_time
         # generates some getCpuLoad for interval seconds
+        print("Actuator generating load...")
         while time.time() < interval:
             pr = 213123  # generates some load
             _ = pr * pr
@@ -47,6 +48,7 @@ class ClosedLoopActuator:
             self.controller.set_cpu(self.monitor.get_cpu_load())
             sleep_time = self.controller.get_sleep_time()
             self.generate_load(sleep_time)
+            print(f"Generating load for sleep time: {sleep_time}")
             self.send_plot_sample()
         return sleep_time
 
